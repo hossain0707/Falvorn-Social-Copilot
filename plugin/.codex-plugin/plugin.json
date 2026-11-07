@@ -1,0 +1,33 @@
+{
+  "interface": {
+    "capabilities": [
+      "Interactive"
+    ],
+    "category": "Productivity",
+    "defaultPrompt": "Plan 7 days of original Instagram and Facebook content for my brand. Keep everything as drafts until I approve.",
+    "developerName": "MD NAJMUL HOSSAIN",
+    "displayName": "Falvorn Social Copilot",
+    "longDescription": "Plan, draft, research, review, schedule, and manage Instagram and Facebook content in your brand voice. Fourteen reusable skills, with confirmation before publishing or messaging. Optional PostZen MCP connection enables eligible account actions.",
+    "shortDescription": "Instagram + Facebook AI agent"
+  },
+  "name": "falvorn-social-copilot",
+  "version": "1.0.0",
+  "description": "Fourteen approval-first social media agent workflows for ChatGPT, Instagram professional accounts and Facebook Pages, with an optional hosted PostZen MCP connector.",
+  "author": {
+    "name": "MD NAJMUL HOSSAIN",
+    "email": "n.h.munna55@gmail.com"
+  },
+  "keywords": [
+    "social media",
+    "instagram",
+    "facebook",
+    "ChatGPT",
+    "marketing",
+    "content",
+    "scheduling"
+  ],
+  "homepage": "https://github.com/hossain0707/Social-media-automation-agent",
+  "license": "Proprietary",
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}

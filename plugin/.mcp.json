@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "postzen": {
+      "type": "streamable-http",
+      "url": "https://mcp.postzen.dev/mcp",
+      "headers": {},
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            }
+          }
+        }
+      }
+    }
+  }
+}
