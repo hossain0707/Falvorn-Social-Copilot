@@ -20,3 +20,12 @@
 ## Explicitly unverified
 
 No real account tokens were supplied or accessed. Authenticated Instagram, Facebook Page, scheduling, message and analytics tool behavior cannot be certified without OAuth authorization. The demo is not a production social media publishing backend.
+
+
+## Release evidence — 2026-11-07
+
+- GitHub CI green: https://github.com/hossain0707/Falvorn-Social-Copilot/actions/runs/42356091531 (commit ac59052).
+- Production deployment READY: dpl_9ApezY2gthF5uBgPMTasvCdQaUjG, public URL https://falvorn-social-copilot.vercel.app.
+- Automated browser walkthrough verified the studio could generate Instagram and Facebook demo drafts, approve drafts, add a local schedule, and update local counts without making external social calls.
+- Initial browser QA also detected an empty default brief and a hanging on-demand movie recorder. Commit 6fe8784 implements a default brief, an immediately playing animated film, and bounded optional video export. Current deployment contains those changes. The corrected full interactive film/export has not yet been independently browser-retested across browsers.
+- Deployment method: Vercel API inline production deploy from the GitHub repository's site files. GitHub integration permission is not available for this new repo yet, so future Git pushes will NOT auto-deploy until Vercel's GitHub integration is granted access and linked. Avoid representing Git integration as already active.
