@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090f17">
+  <meta name="description" content="Falvorn Social Copilot is a ChatGPT-native social media workflow system for Instagram and Facebook Pages. Explore 14 specialist skills and an interactive approval-first 3D demo.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Falvorn Social Copilot — From idea to impact">
+  <meta property="og:description" content="14 social media skills. One human-in-control creative command center.">
+  <meta property="og:image" content="/og.svg">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Falvorn Social Copilot — Human-led social AI</title>
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to interactive studio</a>
+  <div id="notice" class="notice" role="status" aria-live="polite"></div>
+  <div class="site-shell">
+    <header class="header">
+      <a class="wordmark" href="#top" aria-label="Falvorn Social Copilot home">
+        <span class="logo-mark"><i></i><i></i><i></i></span>
+        <span>FALVORN <b>/ SOCIAL</b></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#platform">Platform</a><a href="#workspace">Studio</a><a href="#skills">14 skills</a><a href="#process">How it works</a>
+      </nav>
+      <a class="nav-github" href="https://github.com/hossain0707/Falvorn-Social-Copilot" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="19" height="19"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.09.67-3.74-1.3-3.74-1.3-.5-1.28-1.24-1.62-1.24-1.62-1.01-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .71 2.63.51 3.27.39.1-.72.39-1.2.71-1.48-2.46-.28-5.04-1.23-5.04-5.48 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.43 3.05-1.14 3.05-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.98 0 4.26-2.59 5.2-5.06 5.47.4.34.76 1.02.76 2.06V22c0 .29.2.64.77.53A11.1 11.1 0 0 0 12 .9Z"/></svg>
+        <span>View repository</span>
+      </a>
+    </header>
+    <main id="top">
+      <section class="hero" id="platform">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="signal-dot"></span> CREATIVE INTELLIGENCE / HUMAN CONTROL</div>
+          <h1>Your brand.<br><em>In motion.</em><span class="title-period">.</span></h1>
+          <p class="hero-description">One creative command center for <strong>ChatGPT, Instagram and Facebook.</strong> Turn a thought into platform-ready content, review every detail, and move from draft to delivery with intention.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" data-open-studio>Explore the live studio <span aria-hidden="true">↗</span></button>
+            <button type="button" class="btn btn-outline" id="watchBtn"><span class="play-dot" aria-hidden="true">▶</span> Watch motion film</button>
+          </div>
+          <p class="hero-disclaimer"><span class="small-dot"></span> Interactive product simulation · Real posting requires your connected account and approval</p>
+          <div class="hero-metrics" aria-label="Product overview">
+            <div><strong>14</strong><span>specialist workflows</span></div>
+            <span class="vert"></span>
+            <div><strong>02</strong><span>social channels</span></div>
+            <span class="vert"></span>
+            <div><strong>01</strong><span>human approval gate</span></div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="art-topline"><span>INTERACTIVE 3D WORKSPACE</span><span class="art-play-state"><span class="signal-dot"></span> SCENE LIVE</span></div>
+          <div class="scene" id="scene" data-active="instagram" aria-label="Animated three-dimensional concept showing ChatGPT, Instagram and Facebook working through an approval workflow">
+            <div class="scene-halo halo-one"></div><div class="scene-halo halo-two"></div>
+            <div class="grid-floor"></div>
+            <div class="scene-world">
+              <div class="glass-card left-card">
+                <div class="mini-flag">01 / INPUT</div>
+                <div class="gpt-badge">✳</div>
+                <h3>ChatGPT</h3>
+                <p>Creative direction<br>Brand intelligence<br>Content strategy</p>
+                <div class="microlines"><span></span><span></span><span></span></div>
+              </div>
+              <div class="glass-card right-card">
+                <div class="mini-flag">03 / CHANNELS</div>
+                <div class="social-row"><span class="ig-icon">◎</span><div><strong>Instagram</strong><small>Reels / posts</small></div><b class="pulse-circle"></b></div>
+                <div class="social-row"><span class="fb-icon">f</span><div><strong>Facebook</strong><small>Pages</small></div><b class="pulse-circle"></b></div>
+                <div class="social-footer">Approval required <span>↗</span></div>
+              </div>
+              <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <div class="screen-header"><span class="screen-avatar">F</span><div><strong>falvorn.ai</strong><small>Creative studio</small></div><span class="screen-more">•••</span></div>
+                  <div class="screen-canvas">
+                    <span class="canvas-chip">CAMPAIGN / 001</span>
+                    <div class="orbital-art"><span class="orbital-ring r1"></span><span class="orbital-ring r2"></span><span class="orbital-core">F</span></div>
+                    <div class="poster-title">Think.<br><em>Create.</em><br>Connect.</div>
+                    <span class="poster-corner">NEXT ERA<br>OF SOCIAL</span>
+                  </div>
+                  <div class="screen-interactions"><span>♡</span><span>◯</span><span>➤</span><small>•••</small></div>
+                  <p><strong>falvorn.ai</strong> Your idea deserves a world of possibilities.</p>
+                  <div class="phone-tags"><span>#CreativeAI</span><span>#BuildInPublic</span></div>
+                </div>
+              </div>
+              <div class="float-pill pill-one"><span class="pill-glow"></span> Content approved</div>
+              <div class="float-pill pill-two">↗ &nbsp; Preview ready</div>
+              <div class="connect-line line-left"></div><div class="connect-line line-right"></div>
+            </div>
+          </div>
+          <div class="art-bottomline"><span>DRAG TO TILT THE SCENE</span><span>WORKFLOW VISUALIZATION · NOT A LIVE ACCOUNT</span></div>
+        </div>
+      </section>
+      <div class="trust-line"><span>MADE FOR FOCUSED SOCIAL TEAMS</span><div><strong>ChatGPT</strong><span class="divider-icon">+</span><strong>Instagram</strong><span class="divider-icon">+</span><strong>Facebook Pages</strong></div><span>PRIVATE PLUGIN · API-GATED PUBLISHING</span></div>
+      <section class="section section-workflow" id="process">
+        <div class="section-heading"><div><div class="section-tag">01 / THE FLOW</div><h2>From first thought<br>to final approval.</h2></div><p>AI can accelerate the creative work. The decision to publish stays with you.</p></div>
+        <div class="process-grid">
+          <article class="process-card"><span class="step-count">01</span><span class="step-graphic step-one"><i></i><i></i><i></i></span><h3>Set the direction</h3><p>Define your brief, brand voice, audience and creative format. Start with a clear objective.</p></article>
+          <article class="process-card"><span class="step-count">02</span><span class="step-graphic step-two"><i></i><i></i><i></i></span><h3>Create and refine</h3><p>Shape a draft for each channel, adjust the caption and check the visual narrative.</p></article>
+          <article class="process-card"><span class="step-count">03</span><span class="step-graphic step-three"><i></i><i></i><i></i></span><h3>Approve deliberately</h3><p>Nothing moves toward a real channel until an authorized person confirms the exact post.</p></article>
+        </div>
+      </section>
+      <section class="workspace-section" id="workspace">
+        <div class="workspace-heading">
+          <div><div class="section-tag">02 / LIVE PRODUCT PREVIEW</div><h2>Go beyond the concept.</h2><p>Try the browser-based studio. Generate, edit, approve and simulate a schedule in a safe local sandbox.</p></div>
+          <span class="demo-badge"><i></i> LIVE INTERACTIVE DEMO</span>
+        </div>
+        <div class="studio">
+          <aside class="studio-side">
+            <div class="studio-brand"><span class="logo-mark small"><i></i><i></i><i></i></span><span><strong>SOCIAL COPILOT</strong><small>Creative command</small></span></div>
+            <div class="studio-group-label">WORKSPACE</div>
+            <div class="studio-tabs" role="tablist" aria-label="Studio sections">
+              <button type="button" class="tab active" data-tab="studio" role="tab" aria-selected="true"><span>▤</span> Content studio</button>
+              <button type="button" class="tab" data-tab="queue" role="tab" aria-selected="false"><span>▦</span> Approval queue <b id="queueBadge">0</b></button>
+              <button type="button" class="tab" data-tab="analytics" role="tab" aria-selected="false"><span>◷</span> Demo activity</button>
+              <button type="button" class="tab" data-tab="connections" role="tab" aria-selected="false"><span>⌁</span> Connections</button>
+            </div>
+            <div class="side-separator"></div>
+            <div class="side-connection"><small>SYSTEM STATUS</small><div><span class="soft-pulse"></span> Sandbox operational</div><p>No external social credentials are used by this preview.</p></div>
+            <div class="side-bottom"><a href="https://chatgpt.com/plugins/plugins_6aee86621324819180a3fcda3276de66" target="_blank" rel="noopener noreferrer">Open ChatGPT plugin ↗</a></div>
+          </aside>
+          <div class="studio-main">
+            <div class="studio-topbar"><div><span class="studio-breadcrumb">WORKSPACE <span>/</span> CREATIVE OPERATIONS</span><h3>Content workspace</h3></div><span class="sandbox-pill">● Sandbox mode</span></div>
+            <section data-panel="studio" aria-label="Content studio" class="studio-body">
+              <div class="composer">
+                <div class="panel-heading"><span class="panel-index">01 / BRIEF</span><strong>Build your next post</strong><p>Describe your idea, then preview the platform-specific result.</p></div>
+                <label for="brand">Brand name</label><input id="brand" maxlength="60" value="Falvorn AI" autocomplete="off">
+                <label for="brief">Creative brief</label><textarea id="brief" rows="4" maxlength="700" placeholder="Describe the story you want to tell…">Introducing a human-first AI creative copilot that simplifies social media planning for independent brands and creators</textarea>
+                <div class="label-caption">Destination</div>
+                <div class="platform-toggle" role="group" aria-label="Social media destination">
+                  <button type="button" class="selected" data-platform="instagram" aria-pressed="true"><span class="ig-icon">◎</span> Instagram</button>
+                  <button type="button" data-platform="facebook" aria-pressed="false"><span class="fb-icon">f</span> Facebook</button>
+                </div>
+                <div class="composer-row">
+                  <div><label for="format">Content type</label><select id="format"><option value="reel">Reel / Short</option><option value="carousel">Carousel</option><option value="post">Post</option></select></div>
+                  <div><label for="tone">Brand voice</label><select id="tone"><option value="confident">Confident</option><option value="warm">Warm</option><option value="editorial">Editorial</option></select></div>
+                </div>
+                <button type="button" id="generateBtn" class="btn btn-primary generate"><span>✳</span> Generate demo draft <span aria-hidden="true">↗</span></button>
+                <div class="helper-note"><span>ⓘ</span> Drafts here use transparent, local templates — not an AI API. Use the ChatGPT plugin for real AI generation.</div>
+              </div>
+              <div class="preview-area">
+                <div class="preview-top"><span class="panel-index">02 / PREVIEW & APPROVAL</span><span id="previewStatus" class="preview-status" data-status="empty">Not generated</span></div>
+                <div id="previewEmpty" class="preview-empty"><div class="empty-art"><span>✳</span></div><strong>Ready when you are.</strong><p>Generate a draft to inspect the caption, channel, and approval flow.</p></div>
+                <div id="previewFilled" hidden>
+                  <div class="preview-meta"><span id="previewPlatform">Instagram</span><span id="previewFormat">Reel / short video</span></div>
+                  <div class="preview-card">
+                    <div class="preview-card-art"><div class="preview-brand-orbit"><i></i><i></i><span>F</span></div><div class="preview-card-art-label">MAKE IDEAS<br>MOVE PEOPLE.</div></div>
+                    <div class="preview-card-info"><div><span class="preview-user">F</span><span><strong>falvorn.ai</strong><small>Preview only</small></span></div><span>♡ &nbsp; ◯ &nbsp; ➤</span></div>
+                    <h4 id="previewTitle"></h4><p id="previewCaption"></p>
+                  </div>
+                  <label for="editCaption">Edit caption</label><textarea id="editCaption" rows="5" maxlength="2200"></textarea>
+                  <div class="preview-actions"><button type="button" id="saveEditBtn" class="btn btn-small">Save changes</button><button type="button" id="approveBtn" class="btn btn-small btn-mint">Approve draft</button></div>
+                  <div class="schedule-box"><label for="scheduleAt">Local demo schedule</label><input id="scheduleAt" type="datetime-local"><div class="schedule-buttons"><button type="button" class="btn btn-small" id="scheduleBtn">Schedule locally</button><button type="button" class="btn btn-small" id="simulateBtn">Simulate handoff ↗</button></div><small>These controls update local browser state only. No Meta API requests or real posts.</small></div>
+                </div>
+              </div>
+            </section>
+            <section data-panel="queue" class="studio-secondary" hidden aria-label="Approval queue">
+              <div class="secondary-heading"><div><span class="panel-index">03 / SAVED ACTIVITY</span><h3>Local approval queue</h3><p>Your drafts and approvals are stored in this browser only.</p></div><button id="clearQueueBtn" class="btn btn-small" type="button">Clear demo data</button></div>
+              <div id="queueItems" class="queue-items"></div>
+            </section>
+            <section data-panel="analytics" class="studio-secondary" hidden aria-label="Demo activity">
+              <div class="secondary-heading"><div><span class="panel-index">04 / OPERATIONAL VIEW</span><h3>Real demo activity, not fake reach.</h3><p>Every number below is computed from actions taken in this browser. Real insights require account authorization.</p></div></div>
+              <div class="analytics-grid"><article><small>Total created</small><strong id="countTotal">0</strong><span>Local drafts</span></article><article><small>Needs approval</small><strong id="countDrafts">0</strong><span>Awaiting review</span></article><article><small>Approved</small><strong id="countApproved">0</strong><span>Ready for handoff</span></article><article><small>Simulated</small><strong id="countSimulated">0</strong><span>Zero real posts</span></article></div>
+              <div class="insight-placeholder"><span>↗</span><div><strong>Real social metrics are not simulated.</strong><p>Connect eligible accounts in the ChatGPT plugin to request supported analytics and insights from the provider.</p></div></div>
+            </section>
+            <section data-panel="connections" class="studio-secondary" hidden aria-label="Connections">
+              <div class="secondary-heading"><div><span class="panel-index">05 / CONNECTIONS</span><h3>Connect through your private plugin.</h3><p>External access uses the documented PostZen MCP connector, not credentials entered into this website.</p></div></div>
+              <div class="connection-row"><span class="connection-identity"><span class="identity-star">✳</span><span><strong>ChatGPT</strong><small>Private Falvorn plugin</small></span></span><a href="https://chatgpt.com/plugins/plugins_6aee86621324819180a3fcda3276de66" rel="noopener noreferrer" target="_blank">Open plugin ↗</a></div>
+              <div class="connection-row"><span class="connection-identity"><span class="ig-icon">◎</span><span><strong>Instagram</strong><small>Professional account required</small></span></span><span class="not-connected">Not connected here</span></div>
+              <div class="connection-row"><span class="connection-identity"><span class="fb-icon">f</span><span><strong>Facebook Pages</strong><small>Page administration required</small></span></span><span class="not-connected">Not connected here</span></div>
+              <p class="connection-footnote">Installing a plugin does not grant any platform access. After you authorize the provider, supported live actions must still request your exact approval. Never paste tokens into this demo.</p>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section class="section skills-section" id="skills">
+        <div class="section-heading"><div><div class="section-tag">03 / CAPABILITIES</div><h2>Fourteen skills.<br>One coordinated voice.</h2></div><p>Creative direction, content production and thoughtful engagement — organized around a clear approval process.</p></div>
+        <div class="skills-grid">
+          <article><span>01</span><h3>Reel concepts</h3><p>Hooks, scenes and short-form scripts.</p></article><article><span>02</span><h3>Niche research</h3><p>Audience, themes and opportunity mapping.</p></article><article><span>03</span><h3>Captions</h3><p>Channel-specific copy with purpose.</p></article><article><span>04</span><h3>Carousels</h3><p>Slide-by-slide narrative planning.</p></article>
+          <article><span>05</span><h3>Stories</h3><p>Sequential story concepts and polls.</p></article><article><span>06</span><h3>Profile review</h3><p>Audit bios, positioning and Page identity.</p></article><article><span>07</span><h3>Content calendar</h3><p>Plan the right content cadence.</p></article><article><span>08</span><h3>Brand voice</h3><p>Rewrite for clarity and originality.</p></article>
+          <article><span>09</span><h3>Community</h3><p>Helpful, context-aware engagement ideas.</p></article><article><span>10</span><h3>Comments</h3><p>Draft replies for human review.</p></article><article><span>11</span><h3>Direct messages</h3><p>Private responses with safeguards.</p></article><article><span>12</span><h3>Repurposing</h3><p>Adapt an idea across channels.</p></article>
+          <article><span>13</span><h3>Content audits</h3><p>Insights, hypotheses and experiments.</p></article><article class="skill-highlight"><span>14</span><h3>Publishing flow</h3><p>Review, approve, then use connected tools.</p></article>
+        </div>
+      </section>
+      <section class="closing"><span class="closing-orbit"></span><div class="closing-inner"><div class="section-tag">READY FOR THE NEXT IDEA?</div><h2>Let creativity move.<br><em>Keep control.</em></h2><p>Start with ChatGPT. Connect approved social accounts when you're ready. Every publishing action stays yours to authorize.</p><div class="closing-actions"><a class="btn btn-primary" href="https://chatgpt.com/plugins/plugins_6aee86621324819180a3fcda3276de66" target="_blank" rel="noopener noreferrer">Open Falvorn plugin ↗</a><a class="btn btn-outline" href="https://github.com/hossain0707/Falvorn-Social-Copilot" target="_blank" rel="noopener noreferrer">Explore source code</a></div></div></section>
+    </main>
+    <footer><div class="footer-brand"><span class="logo-mark small"><i></i><i></i><i></i></span><span>FALVORN / SOCIAL</span></div><p>Built independently by Md Najmul Hossain. Not affiliated with Meta, Instagram or OpenAI. Provider features and permissions vary.</p><span>© <span data-year>2026</span> FALVORN AI</span></footer>
+  </div>
+  <dialog id="videoDialog" class="video-dialog" aria-label="Falvorn Social Copilot motion film"><div class="video-modal"><div class="video-modal-top"><strong>FALVORN / SOCIAL — MOTION FILM</strong><button type="button" id="closeVideo" aria-label="Close video">×</button></div><div class="video-frame"><video id="videoPlayer" controls playsinline hidden></video><div class="video-status" id="videoStatus">Preparing motion walkthrough…</div></div><div class="video-modal-bottom"><p>Original browser-generated walkthrough of the approval-first concept, not actual account activity.</p><button type="button" class="btn btn-small" id="downloadVideo" hidden>Download video</button></div></div></dialog>
+</body>
+</html>
