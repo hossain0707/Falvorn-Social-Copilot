@@ -45,7 +45,7 @@ All 14 skills live under the plugin/skills directory with their original instruc
 
 ## Product video and 3D preview
 
-The hero visual uses original CSS 3D transforms, layered floating panels and an animated social mockup, with pointer-based tilt. Press **Watch motion film** on the live website to generate a real playable/downloadable video walkthrough in browsers supporting MediaRecorder. The film contains only original illustrations; no copied Instagram footage and no real account data.
+The hero visual uses original CSS 3D transforms, layered floating panels and an animated social mockup, with pointer-based tilt. Press **Watch motion film** to view a cinematic animated walkthrough instantly, and choose **Export video** to record a real downloadable video in browsers supporting MediaRecorder. The film contains only original illustrations; no copied Instagram footage and no real account data.
 
 The animated SVG above illustrates the approval flow and can be viewed in GitHub without running the website.
 

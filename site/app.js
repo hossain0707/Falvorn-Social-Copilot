@@ -140,6 +140,7 @@ document.querySelectorAll("[data-platform]").forEach(btn=>btn.addEventListener("
 tabs.forEach(btn=>btn.addEventListener("click",()=>setTab(btn.dataset.tab)));
 document.querySelectorAll("[data-open-studio]").forEach(b=>b.addEventListener("click",()=>{setTab("studio");$("workspace").scrollIntoView({behavior:"smooth"});}));
 $("brand").value=state.brand;
+if(!$("brief").value.trim())$("brief").value="Introducing a human-first AI creative copilot that simplifies social media planning for independent brands and creators";
 const date=new Date(Date.now()+3600*1000);
 date.setMinutes(date.getMinutes()-date.getTimezoneOffset());
 $("scheduleAt").value=date.toISOString().slice(0,16);
@@ -179,46 +180,97 @@ function drawFrame(ctx,progress) {
   ctx.fillStyle="#798c91";ctx.font="14px Arial";ctx.fillText("Product walkthrough · illustrative demo only",60,503);
   ctx.fillStyle="#78e1be";ctx.fillRect(60,520,840*progress,3);
 }
-async function recordVideo() {
-  if(videoUrl) return videoUrl;
-  if(!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) throw new Error("This browser cannot record the demo. Try a modern browser.");
+const filmSlides=[
+  ["ONE CREATIVE SYSTEM.","THREE CONNECTED WORLDS."],
+  ["TURN A BRIEF","INTO A PLATFORM-READY DRAFT."],
+  ["REVIEW EVERY WORD.","APPROVE BEFORE ANY ACTION."],
+  ["SCHEDULE WITH INTENT.","NEVER SILENTLY PUBLISH."],
+  ["14 SPECIALIST SKILLS.","ONE HUMAN-IN-CONTROL WORKFLOW."]
+];
+let filmTimer=null;
+function startFilm(){
+  clearInterval(filmTimer);
+  $("filmStage").hidden=false;
+  $("videoPlayer").hidden=true;
+  $("videoPlayer").pause();
+  const started=Date.now(),duration=9000;
+  function update(){
+    const p=Math.min(1,(Date.now()-started)/duration);
+    const i=Math.min(filmSlides.length-1,Math.floor(p*filmSlides.length));
+    $("filmTitle").textContent=filmSlides[i][0];
+    $("filmSubtitle").textContent=filmSlides[i][1];
+    $("filmProgress").style.width=(p*100)+"%";
+    $("videoStatus").textContent=p<1?"Playing original product walkthrough…":"Film complete. Replay or export a video recording.";
+    if(p===1)clearInterval(filmTimer);
+  }
+  update();
+  filmTimer=setInterval(update,100);
+}
+async function recordVideo(){
+  if(videoUrl)return videoUrl;
+  if(!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream)
+    throw new Error("Video export is unavailable in this browser. The animated film above remains playable.");
   const canvas=document.createElement("canvas");canvas.width=960;canvas.height=540;
   const ctx=canvas.getContext("2d");
-  const mime=["video/webm;codecs=vp9","video/webm;codecs=vp8","video/webm","video/mp4"].find(x=>MediaRecorder.isTypeSupported(x));
-  if(!mime) throw new Error("No supported video recorder was found in this browser.");
-  const stream=canvas.captureStream(16);
-  const recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:850000});
-  const pieces=[];
-  const done=new Promise((resolve,reject)=>{recorder.ondataavailable=e=>{if(e.data.size)pieces.push(e.data);};recorder.onerror=e=>reject(e.error||new Error("Recording failed."));recorder.onstop=()=>resolve(URL.createObjectURL(new Blob(pieces,{type:mime})));});
-  const duration=6400;
-  recorder.start();
-  const start=performance.now();
-  await new Promise(resolve=>{
-    function tick(now){const p=Math.min(1,(now-start)/duration);drawFrame(ctx,p);if(p<1)requestAnimationFrame(tick);else resolve();}
-    requestAnimationFrame(tick);
+  const mime=["video/webm;codecs=vp8","video/webm","video/mp4"].find(x=>MediaRecorder.isTypeSupported(x));
+  if(!mime)throw new Error("No video export codec is supported by this browser.");
+  const stream=canvas.captureStream(12);
+  const recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:600000});
+  const chunks=[];
+  const completed=new Promise((resolve,reject)=>{
+    recorder.ondataavailable=e=>{if(e.data.size>0)chunks.push(e.data);};
+    recorder.onerror=e=>reject(e.error||new Error("Video export failed."));
+    recorder.onstop=()=>chunks.length?resolve(URL.createObjectURL(new Blob(chunks,{type:mime}))):reject(new Error("The browser returned an empty recording."));
   });
-  recorder.stop();stream.getTracks().forEach(t=>t.stop());
-  videoUrl=await done;return videoUrl;
+  let timer=null,stopper=null;
+  try {
+    drawFrame(ctx,0);
+    recorder.start(500);
+    const started=Date.now();
+    timer=setInterval(()=>{
+      const progress=Math.min(1,(Date.now()-started)/6400);
+      drawFrame(ctx,progress);
+    },70);
+    await new Promise(resolve=>{stopper=setTimeout(resolve,6600);});
+    clearInterval(timer);
+    drawFrame(ctx,1);
+    if(recorder.state!=="inactive")recorder.stop();
+    const timeout=new Promise((_,reject)=>setTimeout(()=>reject(new Error("Recording timed out; your browser may not support canvas capture.")),5000));
+    videoUrl=await Promise.race([completed,timeout]);
+    return videoUrl;
+  }finally {
+    clearInterval(timer);clearTimeout(stopper);
+    if(recorder.state!=="inactive")try{recorder.stop();}catch{}
+    stream.getTracks().forEach(t=>t.stop());
+  }
 }
-$("watchBtn").addEventListener("click",async()=>{
-  const dlg=$("videoDialog");
-  if(!dlg.open)dlg.showModal();
-  $("videoStatus").textContent="Preparing your motion walkthrough…";
-  $("videoPlayer").hidden=true;
+$("watchBtn").addEventListener("click",()=>{
+  if(!$("videoDialog").open)$("videoDialog").showModal();
+  startFilm();
+});
+$("replayVideo").addEventListener("click",()=>startFilm());
+$("downloadVideo").addEventListener("click",async()=>{
+  const btn=$("downloadVideo");btn.disabled=true;
+  $("videoStatus").textContent="Rendering a downloadable video — please keep this window open…";
   try{
     const src=await recordVideo();
-    $("videoPlayer").src=src;$("videoPlayer").hidden=false;
-    $("videoStatus").textContent="Original animated walkthrough generated in your browser.";
-    $("videoPlayer").play().catch(()=>{});
-    $("downloadVideo").hidden=false;
-  }catch(e){$("videoStatus").textContent=e.message;}
+    $("videoPlayer").src=src;
+    $("videoPlayer").hidden=false;
+    $("filmStage").hidden=true;
+    clearInterval(filmTimer);
+    $("videoStatus").textContent="Export generated. You can play or save the video.";
+    const a=document.createElement("a");a.href=src;
+    a.download=src&&MediaRecorder.isTypeSupported("video/webm")?"falvorn-social-copilot-demo.webm":"falvorn-social-copilot-demo.mp4";
+    a.click();
+  }catch(e){$("videoStatus").textContent=e.message;$("filmStage").hidden=false;}
+  finally{btn.disabled=false;}
 });
-$("downloadVideo").addEventListener("click",()=>{
-  if(!videoUrl)return;
-  const link=document.createElement("a");link.href=videoUrl;link.download="falvorn-social-copilot-demo.webm";link.click();
+$("closeVideo").addEventListener("click",()=>{
+  clearInterval(filmTimer);$("videoPlayer").pause();$("videoDialog").close();
 });
-$("closeVideo").addEventListener("click",()=>{$("videoPlayer").pause();$("videoDialog").close();});
-$("videoDialog").addEventListener("click",e=>{if(e.target===$("videoDialog")){$("videoPlayer").pause();$("videoDialog").close();}});
+$("videoDialog").addEventListener("click",e=>{
+  if(e.target===$("videoDialog")){clearInterval(filmTimer);$("videoPlayer").pause();$("videoDialog").close();}
+});
 const scene=$("scene");
 let moving=false, originX=0, originY=0;
 scene.addEventListener("pointerdown",e=>{if(e.target.closest("button"))return;moving=true;originX=e.clientX;originY=e.clientY;scene.setPointerCapture(e.pointerId);});

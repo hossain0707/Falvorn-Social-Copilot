@@ -13,7 +13,7 @@
 3. Verify a changed approved caption requires reapproval.
 4. Switch to Facebook and create a separate caption.
 5. Inspect local queue and activity counts; refresh to verify persistence.
-6. Open Watch motion film and test playback/download or clear unsupported-browser message.
+6. Open Watch motion film and verify that the visual sequence plays immediately; test optional Export video or clear unsupported-browser message.
 7. Confirm no network call to Meta or PostZen from the public website.
 8. Verify CSP/security headers and mobile legibility.
 

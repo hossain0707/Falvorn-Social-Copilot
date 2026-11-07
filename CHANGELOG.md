@@ -8,3 +8,7 @@
 - Added a real browser-generated motion-film recorder and download control.
 - Added test suite, CI, static validation, proprietary license and owner-specific GitHub maintainer skill.
 - Confirmed design separates demo-only actions from authenticated social account operations; actual external publishing not tested.
+
+### Browser QA corrections
+- Kept the motion film instantly viewable without waiting for browser media encoding; video export is an optional action with bounded timeout and an explicit fallback.
+- Ensured the creative brief has a usable default and corrected duplicate punctuation in the headline.
